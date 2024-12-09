@@ -30,7 +30,7 @@ CREATE TABLE IF NOT EXISTS candy_products(
 	unit_cost NUMERIC
 );
 
-
+-----------------------------------------------------------------------------------
 -- import csv file
 COPY candy_sales
 FROM 'C:/Users/ctsta/Desktop/candy_distributor/candy_sales.csv'
@@ -48,7 +48,7 @@ LIMIT 5;
 SELECT * 
 FROM candy_products
 LIMIT 5;
-
+---------------------------------------------------------------------------------------
 -- check # of unique candy distributor (factory)
 SELECT DISTINCT factory
 FROM candy_products
