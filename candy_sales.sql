@@ -33,11 +33,11 @@ CREATE TABLE IF NOT EXISTS candy_products(
 
 -- import csv file
 COPY candy_sales
-FROM 'C:/Users/ctsta/Desktop/candy_sales.csv'
+FROM 'C:/Users/ctsta/Desktop/candy_distributor/candy_sales.csv'
 WITH (FORMAT CSV, HEADER TRUE)
 
 COPY candy_products
-FROM 'C:/Users/ctsta/Desktop/candy_products.csv'
+FROM 'C:/Users/ctsta/Desktop/candy_distributor/candy_products.csv'
 WITH (FORMAT CSV, HEADER TRUE)
 
 -- verify import csv
