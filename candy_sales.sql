@@ -20,7 +20,6 @@ CREATE TABLE IF NOT EXISTS candy_sales (
 	cost NUMERIC
 );
 
-
 CREATE TABLE IF NOT EXISTS candy_products(
 	division VARCHAR(255),
 	product_name VARCHAR (255),
@@ -30,7 +29,7 @@ CREATE TABLE IF NOT EXISTS candy_products(
 	unit_cost NUMERIC
 );
 
-
+------------------------------------------------------------------------------------
 -- import csv file
 COPY candy_sales
 FROM 'C:/Users/ctsta/Desktop/candy_distributor/candy_sales.csv'
@@ -48,7 +47,7 @@ LIMIT 5;
 SELECT * 
 FROM candy_products
 LIMIT 5;
-
+----------------------------------------------------------------------------------------
 -- check # of unique candy distributor (factory)
 SELECT DISTINCT factory
 FROM candy_products
@@ -98,22 +97,22 @@ JOIN candy_products AS t2
 ON t1.product_id = t2.product_id)
 
 SELECT * 
-INTO profit_cte
+INTO product_sales
 FROM cte
 
 SELECT * 
-FROM profit_cte
+FROM product_sales
 LIMIT 3
 
 -- which factory makes the most avg_gross profit?
 SELECT factory, ROUND(AVG(gross_profit),2) AS avg_profit
-FROM profit_cte 
+FROM product_sales 
 GROUP BY factory
 ORDER BY avg_profit DESC
 
 -- select orders between two dates
 SELECT *
-FROM profit_cte
+FROM product_sales
 WHERE order_date BETWEEN '2021-03-31' AND '2021-09-15'
 
 
