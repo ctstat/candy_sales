@@ -1,5 +1,5 @@
 -- create tables
-CREATE TABLE candy_sales (
+CREATE TABLE IF NOT EXISTS candy_sales (
 	row_id INT,
 	order_id VARCHAR(255),
 	order_date DATE,
@@ -21,7 +21,7 @@ CREATE TABLE candy_sales (
 );
 
 
-CREATE TABLE candy_products(
+CREATE TABLE IF NOT EXISTS candy_products(
 	division VARCHAR(255),
 	product_name VARCHAR (255),
 	factory VARCHAR(255),
