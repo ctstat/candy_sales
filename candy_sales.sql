@@ -154,7 +154,7 @@ WHERE division = 'Other'
 SELECT *
 FROM product2
 
--- drop table
+-- drop the duplicated table
 DROP TABLE product2;
 
 
