@@ -115,10 +115,47 @@ SELECT *
 FROM product_sales
 WHERE order_date BETWEEN '2021-03-31' AND '2021-09-15'
 
+-- substract the date part
+SELECT order_date, 
+		-- approach1
+		DATE_PART('YEAR', order_date) AS YEAR1, 
+		DATE_PART('MONTH', order_date) AS MONTH1, 
+		DATE_PART('DAY', order_date) AS DAY1,
+		-- approach2
+		EXTRACT(YEAR from order_date) AS YEAR2, 
+		EXTRACT(MONTH from order_date) AS MONTH2, 
+		EXTRACT(DAY from order_date) AS DAY2 
+FROM product_sales
 
 
+/* update table information
+	1. duplicated a table first 
+	2. work on the duplicated table only
+*/
 
+SELECT * 
+FROM candy_products
+LIMIT 5;
 
+-- duplicated table
+SELECT *
+INTO product2
+FROM candy_products
+
+SELECT *
+FROM product2
+
+-- update the duplicated table
+UPDATE product2
+SET division = 'Others'
+WHERE division = 'Other'
+
+-- check the result
+SELECT *
+FROM product2
+
+-- drop the duplicated table
+DROP TABLE product2;
 
 
 
